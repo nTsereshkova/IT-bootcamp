@@ -1,0 +1,19 @@
+.detailPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    min-height: 94vh;
+    background-color: #e7e7e7;
+    padding:0;
+    margin:0;
+    padding-bottom: 20px;
+  }
+  .detailPage p {
+    padding: 10px 0;
+    margin: 0 auto;
+  }
+  .detailPage img {
+    margin: 0 auto;
+  }

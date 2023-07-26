@@ -1,0 +1,26 @@
+.character {
+  box-sizing: border-box;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: auto;
+  height: auto;
+  border-radius: 3px;
+
+}
+.character:hover {
+  background-color: #39da31;
+}
+
+.character_name {
+ min-height: 30px;
+
+ width: auto;
+
+}
+
+.character_img {
+  height: fit-content;
+  width: fit-content;
+}

@@ -1,0 +1,62 @@
+.header {
+  height: 6vh;
+  background-color:  #39da31;;
+  color: black;
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.header_info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 30px;
+  flex: 0 0 25%;
+  padding: 0 15px;
+  font-size: large;
+}
+.header_auth {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 30px;
+  flex: 0 0 40%;
+  padding: 0 15px;
+}
+
+.header_auth_user {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logoRick {
+  height: 40px;
+  width: 40px;
+  margin: 0 10px;
+
+  border-radius: 3px;
+}
+.logoRick:hover {
+  border: 1px solid black;
+}
+.logoRick:active{
+  border: 1px solid  #39da31;
+}
+.logo{
+  height: 30px;
+  width: 40px;
+  margin: 0;
+  color:white
+}
+.logo:hover {
+  color:black;
+}
+.logo:active {
+  color: white;
+}
+
