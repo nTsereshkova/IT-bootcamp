@@ -2,21 +2,24 @@ import axios from 'axios';
 import mainSlice from '../slices/mainSlice';
 
 export const {
-  showUserInfo,
-  hideUserInfo,
   addCharacters,
+  addInfiniteCharacters,
   showDetails,
   setTotalPageAmount,
   mainErrorHandler,
+  infiniteFetchModeHandler,
+  changeCurrentPage,
 } = mainSlice.actions;
 
 export const fetchCharacters = number => {
   return dispatch => {
     let pageNumber = number ? number : 0;
+    console.log(number);
     axios
       .get(`https://rickandmortyapi.com/api/character?page=${pageNumber + 1}`)
       .then(response => {
         dispatch(setTotalPageAmount(response.data.info.pages));
+        // dispatch(changeCurrentPage(pageNumber + 1)),
         dispatch(
           addCharacters(
             response.data.results.map(character => ({
@@ -36,16 +39,29 @@ export const fetchCharacters = number => {
   };
 };
 
-export const showUserInfoHandler = (token, userId) => {
+export const infiniteFetchCharacters = number => {
+  console.log('infine fetch from action ');
   return dispatch => {
+    let pageNumber = number ? number : 0;
     axios
-      .get('api/userInfo', {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: 'Bearer ' + token,
-        },
+      .get(`https://rickandmortyapi.com/api/character?page=${pageNumber + 1}`)
+      .then(response => {
+        dispatch(setTotalPageAmount(response.data.info.pages));
+        dispatch(
+          addInfiniteCharacters(
+            response.data.results.map(character => ({
+              name: character.name,
+              id: character.id,
+              image: character.image,
+              gender: character.gender,
+              species: character.species,
+              status: character.status,
+              location: character.location,
+              origin: character.origin,
+            })),
+          ),
+        );
       })
-      .then(response => dispatch(showUserInfo(response.data.user)))
       .catch(err => dispatch(mainErrorHandler(err.response.data.message)));
   };
 };
