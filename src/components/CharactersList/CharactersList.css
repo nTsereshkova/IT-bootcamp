@@ -5,3 +5,34 @@
   justify-content: space-around;
   flex-wrap: wrap;
 }
+.charactersList-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 50px;
+  bottom: 0;
+  margin-bottom: 10px;
+  background-color: #39da31;
+  border: 1px solid #39da31;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 80px;
+  height: 40px;
+}
+
+.charactersList-btn:hover {
+  color: #e7e7e7;
+}
+.charactersList-btn:active {
+  background-color: black;
+  color: #e7e7e7;
+}
+
+.btn-up_hide {
+  display: none;
+}
+.charactersList-btn-icon {
+  width: 60px;
+  height: 30px;
+}
