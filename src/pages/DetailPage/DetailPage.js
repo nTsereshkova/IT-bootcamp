@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFirstEpisode } from '../../store/actions/actions';
 import { useNavigate } from 'react-router-dom';
+import { Loader } from '../../components/Loader';
 import './DetailPage.css';
 
 const DetailPage = () => {
@@ -51,7 +52,7 @@ const DetailPage = () => {
           <p> first episode : {episode}</p>
         </>
       ) : (
-        <p>...loading </p>
+        <Loader />
       )}
     </div>
   );

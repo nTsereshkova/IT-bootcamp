@@ -7,6 +7,7 @@ import {
   fetchCharacters,
 } from '../../store/actions/actions';
 import { CharactersList } from './CharactersList';
+import { Loader } from '../Loader';
 
 const Content = () => {
   const dispatch = useDispatch();
@@ -150,7 +151,7 @@ const Content = () => {
           goBackToTopHandler={goBackToTopHandler}
         />
       ) : (
-        <p> ... loader </p>
+        <Loader />
       )}
     </>
   );
