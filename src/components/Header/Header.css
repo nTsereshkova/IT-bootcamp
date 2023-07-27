@@ -1,6 +1,6 @@
 .header {
   height: 6vh;
-  background-color:  #39da31;;
+  background-color: #39da31;
   color: black;
   width: 100%;
   padding: 10px 0;
@@ -8,7 +8,6 @@
   justify-content: space-between;
   align-items: center;
 }
-
 
 .header_info {
   display: flex;
@@ -19,44 +18,30 @@
   padding: 0 15px;
   font-size: large;
 }
-.header_auth {
+.header_switch {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   margin-right: 30px;
-  flex: 0 0 40%;
+  flex: 0 0 auto;
   padding: 0 15px;
 }
-
-.header_auth_user {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+.header_switch_input {
+  appearance: none;
+  flex-shrink: 0;
+  width: 25px;
+  height: 25px;
+  margin-right: 30px;
+  border: 2px solid white;
+  border-radius: 15px;
 }
 
-.logoRick {
-  height: 40px;
-  width: 40px;
-  margin: 0 10px;
-
-  border-radius: 3px;
+.header_switch_input:checked {
+  background: black;
+  border: 2px solid white;
 }
-.logoRick:hover {
-  border: 1px solid black;
+.header_switch_input:hover {
+  border: 1px solid white;
+  box-shadow: 0px 4px 24px -8px rgba(0, 0, 0, 1);
+  cursor: pointer;
 }
-.logoRick:active{
-  border: 1px solid  #39da31;
-}
-.logo{
-  height: 30px;
-  width: 40px;
-  margin: 0;
-  color:white
-}
-.logo:hover {
-  color:black;
-}
-.logo:active {
-  color: white;
-}
-

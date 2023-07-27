@@ -1,23 +1,15 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Footer } from '../../components/Footer';
-import { CharactersList } from '../../components/CharactersList';
+import { Content } from '../../components/Content';
 import './Main.css';
 
 const Main = () => {
   const { isError, error, infiniteFetchMode } = useSelector(state => state.main);
-
   return (
     <div className="main">
-      {!isError ? (
-        <>
-          <CharactersList />
-        </>
-      ) : (
-        { error }
-      )}
-
-      {!infiniteFetchMode && <Footer />}
+      {!isError ? <Content /> : { error }}
+      {!infiniteFetchMode && <Footer />} */
     </div>
   );
 };

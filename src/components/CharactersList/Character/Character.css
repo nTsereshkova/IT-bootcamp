@@ -7,17 +7,17 @@
   width: auto;
   height: auto;
   border-radius: 3px;
-
+  border: 1px solid #e7e7e7;
 }
 .character:hover {
   background-color: #39da31;
+  border: 1px solid #39da31;
+  box-shadow: 0px 4px 24px -8px rgba(0, 0, 0, 0.75);
 }
 
 .character_name {
- min-height: 30px;
-
- width: auto;
-
+  min-height: 30px;
+  width: auto;
 }
 
 .character_img {

@@ -12,6 +12,8 @@ const mainSlice = createSlice({
     isError: false,
     error: '',
     infiniteFetchMode: true,
+    showCharactersDetails: false,
+    showCharacters: false,
   },
 
   reducers: {
@@ -39,6 +41,22 @@ const mainSlice = createSlice({
     changeCurrentPage: (state, action) => {
       console.log('changeCurrentPage', action.payload);
       state.currentPage = action.payload + 1;
+    },
+    correctCharactersFirstEpisode: (state, action) => {
+      console.log(action.payload, 'correctCharactersFirstEpisode');
+      // ожидаем id персонажа
+      state.characters.map(item =>
+        item.id === action.payload.id
+          ? (item.episode = action.payload.episode)
+          : item.episode,
+      );
+    },
+    showCharactersDetailsHandler: (state, action) => {
+      state.showCharactersDetails = action.payload;
+    },
+    showCharacters: (state, action) => {
+      console.log('showCharacters');
+      state.showCharacters = action.payload;
     },
   },
 });
