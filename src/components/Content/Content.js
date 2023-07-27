@@ -6,7 +6,7 @@ import {
   infiniteFetchCharacters,
   fetchCharacters,
 } from '../../store/actions/actions';
-import { CharactersList } from '../CharactersList';
+import { CharactersList } from './CharactersList';
 
 const Content = () => {
   const dispatch = useDispatch();
