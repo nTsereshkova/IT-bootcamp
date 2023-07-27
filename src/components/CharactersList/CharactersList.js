@@ -21,7 +21,7 @@ const CharacterList = () => {
   console.log(currentPage);
 
   useEffect(() => {
-    console.log('сработал .юз эффект на пролистывание');
+    console.log('юз эффект который слежит долистал ли ты до конца ');
     console.log(infiniteFetchMode);
     if (infiniteFetchMode === true) {
       console.log('ты в режиме infiniteFetchMode');
@@ -43,28 +43,36 @@ const CharacterList = () => {
   // [infiniteFetchMode, dispatch]
 
   useEffect(() => {
+    console.log('юз эффект ответсвенный за запрос на сервер');
     console.log(loading, infiniteFetchMode);
     if (loading && infiniteFetchMode) {
       console.log('попали в  loading && infiniteFetchMode');
-
-      if (currentPage * 20 >= characters.length) {
-        console.log('currentPage * 20 >= characters.length');
-        dispatch(infiniteFetchCharacters(currentPage));
-        return setLoading(false);
-      }
+      dispatch(infiniteFetchCharacters(currentPage));
+      return setLoading(false);
+      // if (currentPage * 20 >= characters.length) {
+      //   console.log('currentPage * 20 >= characters.length');
+      //   // dispatch(infiniteFetchCharacters(currentPage));
+      //   // return setLoading(false);
+      // }
     }
     if (infiniteFetchMode == false) {
       console.log('!loading && !infiniteFetchMode');
       dispatch(fetchCharacters());
     }
-    // // при петрвой загрузке или пре смене пагинации с постраничной на бесконечную
+    // при первой загрузке для исклбчения глюков при перезагрузке старницы
     if (firstLoad) {
       console.log('firstLoad');
       dispatch(fetchCharacters());
       setFirstLoad(false);
     }
-    // if (loading === false && infiniteFetchMode === true) {
+
+    // // при пре смене пагинации с постраничной на бесконечную
+    // if (firstLoad === false && loading === false && infiniteFetchMode === true) {
+    //   console.log(
+    //     'firstLoad === false && loading === false && infiniteFetchMode === true',
+    //   );
     //   dispatch(fetchCharacters());
+    // не подхожит, не скролится
     // }
   }, [dispatch, loading, characters.length, infiniteFetchMode, firstLoad]);
 
