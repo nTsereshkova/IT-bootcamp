@@ -36,7 +36,6 @@ const mainSlice = createSlice({
     },
     infiniteFetchModeHandler: state => {
       state.infiniteFetchMode = !state.infiniteFetchMode;
-      // state.currentPage = 0;
     },
     changeCurrentPage: (state, action) => {
       console.log('changeCurrentPage', action.payload);

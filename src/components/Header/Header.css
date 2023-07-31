@@ -23,7 +23,7 @@
   justify-content: space-between;
   align-items: center;
   margin-right: 30px;
-  flex: 0 0 auto;
+  flex: 0 1 auto;
   padding: 0 15px;
 }
 .header_switch_input {

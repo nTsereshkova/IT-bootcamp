@@ -38,7 +38,6 @@ export const fetchCharacters = number => {
             })),
           ),
         );
-        // dispatch(showCharacters(true));
       })
       .then(() => dispatch(showCharacters(true)))
       .catch(err => dispatch(mainErrorHandler(err.response.data.message)));

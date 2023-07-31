@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Character.css';
 
 const Character = ({ item }) => {
-  const { name, image, id, location, status, gender, species } = item;
+  const { name, image, id } = item;
 
   const navigate = useNavigate();
   const characterClickHandler = event => {

@@ -4,6 +4,7 @@ import { Header } from './components/Header';
 import { Main } from './pages/Main';
 import { PageNotFound } from './pages/PageNotFound';
 import { DetailPage } from './pages/DetailPage';
+import { Loader } from './components/Loader';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import './App.css';
 
@@ -12,12 +13,10 @@ const App = () => {
     <div className="app">
       <Header />
       <ErrorBoundary className="error">
-        <Suspense fallback={<h1> ...</h1>}>
+        <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="*" element={<PageNotFound />} />
-            <Route path="/login" element={<Navigate replace to="/" />} />
-            <Route path="/sign" element={<Navigate replace to="/" />} />
             <Route path="character/:id" element={<DetailPage />} />
           </Routes>
         </Suspense>

@@ -9,7 +9,7 @@ const Main = () => {
   return (
     <div className="main">
       {!isError ? <Content /> : { error }}
-      {!infiniteFetchMode && <Footer />} */
+      {!infiniteFetchMode && <Footer />}
     </div>
   );
 };
