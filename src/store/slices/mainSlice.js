@@ -4,7 +4,6 @@ import { act } from 'react-dom/test-utils';
 const mainSlice = createSlice({
   name: 'main',
   initialState: {
-    showUserInfo: false,
     user: {},
     characters: [],
     totalPageAmount: 0,
@@ -18,12 +17,10 @@ const mainSlice = createSlice({
 
   reducers: {
     addCharacters: (state, action) => {
-      console.log('add charecters', action.payload);
       state.characters = [...action.payload];
       state.showCharactersDetails = false;
     },
     addInfiniteCharacters: (state, action) => {
-      console.log(action.payload, 'from addInfiniteCharacters ');
       state.characters = state.characters.concat(action.payload);
       state.showCharactersDetails = false;
     },
@@ -38,11 +35,9 @@ const mainSlice = createSlice({
       state.infiniteFetchMode = !state.infiniteFetchMode;
     },
     changeCurrentPage: (state, action) => {
-      console.log('changeCurrentPage', action.payload);
       state.currentPage = action.payload + 1;
     },
     correctCharactersFirstEpisode: (state, action) => {
-      console.log(action.payload, 'correctCharactersFirstEpisode');
       // ожидаем id персонажа
       state.characters.map(item =>
         item.id === action.payload.id
@@ -54,7 +49,6 @@ const mainSlice = createSlice({
       state.showCharactersDetails = action.payload;
     },
     showCharacters: (state, action) => {
-      console.log('showCharacters');
       state.showCharacters = action.payload;
     },
   },

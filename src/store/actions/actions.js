@@ -4,7 +4,6 @@ import mainSlice from '../slices/mainSlice';
 export const {
   addCharacters,
   addInfiniteCharacters,
-  showDetails,
   setTotalPageAmount,
   mainErrorHandler,
   infiniteFetchModeHandler,
@@ -17,11 +16,10 @@ export const {
 export const fetchCharacters = number => {
   return dispatch => {
     let pageNumber = number ? number : 0;
-    console.log(number);
     axios
       .get(`https://rickandmortyapi.com/api/character?page=${pageNumber + 1}`)
       .then(response => {
-        console.log(response.data.results);
+        //console.log(response.data.results);
         dispatch(setTotalPageAmount(response.data.info.pages));
         dispatch(
           addCharacters(
@@ -45,13 +43,12 @@ export const fetchCharacters = number => {
 };
 
 export const infiniteFetchCharacters = number => {
-  console.log('infine fetch from action ');
   return dispatch => {
     let pageNumber = number ? number : 0;
     axios
       .get(`https://rickandmortyapi.com/api/character?page=${pageNumber + 1}`)
       .then(response => {
-        console.log(response.data.results);
+        //console.log(response.data.results);
         dispatch(setTotalPageAmount(response.data.info.pages));
         dispatch(
           addInfiniteCharacters(
@@ -68,7 +65,6 @@ export const infiniteFetchCharacters = number => {
             })),
           ),
         );
-        //dispatch(showCharacters(true));
       })
       .then(() => dispatch(showCharacters(true)))
       .catch(err => dispatch(mainErrorHandler(err.response.data.message)));
@@ -76,7 +72,6 @@ export const infiniteFetchCharacters = number => {
 };
 
 export const getFirstEpisode = character => {
-  console.log('we get first episode');
   return dispatch => {
     axios
       .get(`${character.episode}`)
